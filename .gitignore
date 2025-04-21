@@ -1,0 +1,52 @@
+# Python/Django ignores
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+venv/
+migrations/
+.idea/
+.DS_Store
+.env
+# Node.js/Vue.js ignores
+node_modules/\
+.node_modules/\
+dist/
+
+# Specific paths for ignoring
+DJANGO_BE/__pycache__/
+DJANGO_BE/db.sqlite3
+DJANGO_BE/media/
+DJANGO_BE/venv/
+DJANGO_BE/migrations/
+frontend/dist/
+
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+.nuxt
+.data
+.output
