@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
 <div>
-    hello
+    <UiButton> Hello! </UiButton>
 </div>
 </template>
 

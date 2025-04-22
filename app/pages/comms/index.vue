@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-    layout: 'v2',
+    layout: 'comms',
 })
 </script>
 

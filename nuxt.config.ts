@@ -165,6 +165,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@unlok-co/nuxt-stripe',
     'nuxt-authorization',
+      'shadcn-nuxt'
   ],
   authorization: {},
   css: ["@/assets/styles/tailwind.css", "@/assets/styles/base.css", "primeicons/primeicons.css"],
@@ -179,6 +180,17 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: 'Ui',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: 'app/components/ui'
   },
 
   postcss: {
