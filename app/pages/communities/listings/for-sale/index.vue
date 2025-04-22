@@ -1,39 +1,69 @@
 <template>
-        <div class="max-w-[1390px] mx-auto px-4 py-8">
+
+<div class="max-w-[1390px] mx-auto">
+
+  <div class="flex justify-between items-center mb-4 px-4">
+        <h1 class="text-2xl font-medium tracking-wide	">For Sale</h1>
+        <div class="flex items-center gap-4">
+          <!-- Search bar -->
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search listings..."
+              class="pl-10 pr-4 py-2 w-80 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
+            />
+            <div class="absolute left-3 top-2.5 text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Add new product button -->
+          <button class="flex items-center gap-1 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-50 text-surface-400">
+            Create Listing
+            <span class="font-bold">+</span>
+          </button>
+        </div>
+      </div>
+
+  <div class="px-4 py-4 bg-surface-0 rounded-lg">
 
             <!-- Main content area with sidebar -->
 
-            <div class="flex gap-6">
+          <!-- Header section -->
+
+            <div class="flex gap-6 ">
                 <!-- Products grid -->
                 <div class="flex-1">
-                    <div class="grid grid-cols-4 gap-4">
-                        <div
-                            v-for="product in sample_products.data"
-                            :key="product.name"
-                            class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 cursor-pointer"
-                            :class="{ 'ring-2 ring-blue-500': selectedProduct && selectedProduct.name === product.name }"
-                            @click="selectProduct(product)"
-                        >
-                            <div class="p-4">
-                                <div class="h-36 bg-gray-100 rounded flex items-center justify-center mb-3">
-                                    <img :src="product.image" :alt="product.name" class="h-full object-contain w-80" />
-                                </div>
-                                <h3 class="font-medium text-sm">{{ product.name }}</h3>
-                                <p class="text-sm mt-1">{{ product.currency }}{{ formatNumber(product.price) }}</p>
 
-                                <div class="flex justify-between mt-3 text-xs text-gray-600">
-                                    <div>
-                                        <span class="block">Stock</span>
-                                        <span class="font-medium">{{ product.stock }}</span>
-                                    </div>
-                                    <div>
-                                        <span class="block">Sold</span>
-                                        <span class="font-medium">{{ product.sold }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+     <div class="grid gap-0 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-4 md:mb-8 lg:grid-cols-4">
+         <NuxtLink :to="`/listings/view/${item.stock}`" v-for="item in sample_products.data" :key="item.stock" class="rounded-lg ring-1 ring-black/5 bg-transparent p-2 mt-2 space-y-1.5 overflow-hidden hover:ring-dialist_secondary/50 transition-all">
+            <div class="h-64 w-full relative">
+                 <img :src="item.image" class="relative w-full h-full object-cover rounded-lg aspect-square bg-gray-50/90"/>
+
+                <button class="absolute top-2 right-2 rounded-full bg-gray-50/25 hover:bg-gray-200/30 group transition-all duration-200 text-gray-900 p-1">
+                    <HeartIcon class="size-5 shrink-0 text-gray-50/75 transition-colors duration-200 group-hover:text-gray-200"/>
+                </button>
+            </div>
+              <div>
+                   <div class="flex justify-between gap-2">
+                        <span class="inline-flex grow justify-center items-center rounded-lg bg-gray-50/90 border border-gray-100 px-2 py-1 font-light text-xs text-gray-600">2022</span>
+                        <span class="inline-flex grow justify-center items-center rounded-lg bg-gray-50/90 border border-gray-100 px-2 py-1 font-light text-xs text-gray-600">Pre-owned</span>
+                        <span class="inline-flex grow justify-center items-center rounded-lg bg-gray-50/90 border border-gray-100 px-2 py-1 font-light text-xs text-gray-600">Full Set</span>
+                   </div>
+                </div>
+                <div class="">
+                    <div class="flex flex-col">
+                        <p class="text-gray-800 line-clamp-1 font-helvetica">Rolex Datejust</p>
+                        <p class="font-light py-0 text-sm text-gray-600 line-clamp-1">Clean full set</p>
                     </div>
+                </div>
+            <div class="text-gray-800/90 line-clamp-1 font-helvetica leading-sm text-sm">
+                C$29,2811.00
+            </div>
+        </NuxtLink>
+</div>
 
                     <!-- Pagination -->
                     <div class="flex items-center justify-between mt-8">
@@ -80,10 +110,21 @@
 
             </div>
         </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import {HeartIcon} from "@heroicons/vue/24/outline";
+import Filters from "~/components/Filters.vue";
+
+
+
+
+
+
+
+
 
 const sample_products = {
     data: [

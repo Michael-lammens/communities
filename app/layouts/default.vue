@@ -90,7 +90,7 @@ const goTo = (item) => {
                     >
                         <div class="flex items-center gap-2 lg:flex-row flex-col">
                             <template v-for="(item, index) of navs" :key="index">
-                                <div @click="goTo(item)" class="flex items-center cursor-pointer p-3 rounded-md text-surface-400 hover:text-surface-200 duration-150 transition-colors" :class="{ 'text-dialist': selectedNav === item.label }">
+                                <div @click="goTo(item)" class="flex items-center cursor-pointer p-3 rounded-md text-surface-500 hover:text-surface-200 duration-150 transition-colors" :class="{ 'text-dialist': selectedNav === item.label }">
                                     <i :class="`${item.icon} !leading-none mr-3`" />
                                     <span class="font-light">{{ item.label }}</span>
                                 </div>
@@ -137,7 +137,7 @@ const goTo = (item) => {
                     </div>
                 </div>
 
-                <div class="flex flex-1 min-h-0 bg-surface-100">
+                <div class="flex flex-1 min-h-0 bg-surface-50">
                     <slot />
                 </div>
 
