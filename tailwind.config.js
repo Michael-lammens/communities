@@ -41,6 +41,18 @@ const THEME_EXTENDED = {
             DEFAULT: "hsl(var(--card))",
             foreground: "hsl(var(--card-foreground))",
         },
+
+        sidebar: {
+            DEFAULT: 'hsl(var(--sidebar-background))',
+            foreground: 'hsl(var(--sidebar-foreground))',
+            primary: 'hsl(var(--sidebar-primary))',
+            'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+            accent: 'hsl(var(--sidebar-accent))',
+            'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+            border: 'hsl(var(--sidebar-border))',
+            ring: 'hsl(var(--sidebar-ring))'
+        },
+
     },
     fontFamily: {
         benton: ['BentonSans', 'sans-serif'],
@@ -48,12 +60,6 @@ const THEME_EXTENDED = {
         'helvetica-ul': ['Helvetica Neue UltraLight', 'sans-serif'],
         'helvetica-ul-italic': ['Helvetica Neue UltraLight Italic', 'sans-serif'],
 
-    },
-    borderRadius: {
-        xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
     },
     keyframes: {
         "accordion-down": {
@@ -85,7 +91,7 @@ const THEME_EXTENDED = {
 }
 
 module.exports = {
-    darkMode: ['selector', '[class*="p-dark"]'],
+    darkMode: ['selector', '[class*="p-dark"]', 'class'],
     content: [
         "./app/components/**/*.{js,vue,ts}",
         "./app/layouts/**/*.vue",
@@ -98,9 +104,9 @@ module.exports = {
         "./components/**/*.{js,vue,ts}",
     ],
     theme: {
-        extend: {
+    	extend: {
             ...THEME_EXTENDED,
-        }
+    	}
     },
     plugins: [
         PrimeUI,

@@ -129,7 +129,6 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-
   devtools: {
     enabled: true, timeline: {enabled: true,},
   },
